@@ -1,5 +1,3 @@
-markdown
-
 # 🌐 My Portfolio
 
 This is my personal portfolio website built with **Flask**, featuring sections about me, my skills, education, projects, and contact information.  
@@ -112,4 +110,5 @@ I’d love to connect! Feel free to reach out through any of the platforms below
 [![Email](https://img.shields.io/badge/Email-timothyv952%40gmail.com-red?style=for-the-badge\&logo=gmail\&logoColor=white)](mailto:timothyv952@gmail.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Timothy%20Victor-blue?style=for-the-badge\&logo=linkedin\&logoColor=white)](https://www.linkedin.com/in/timothy-victor-a61421223/)
 [![GitHub](https://img.shields.io/badge/GitHub-Osvic1-black?style=for-the-badge\&logo=github\&logoColor=white)](https://github.com/Osvic1/Portfolio)
+
 ````
