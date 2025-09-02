@@ -1,0 +1,371 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-24">
+  <h1 class="text-3xl md:text-4xl font-extrabold mb-12 text-white">Education</h1>
+
+  <div class="relative border-l border-purple-500/70 pl-10 space-y-12">
+    <div data-aos="fade-up" class="relative ml-2">
+      <div class="absolute -left-6 top-2 w-5 h-5 bg-purple-500 rounded-full border-4 border-gray-900"></div>
+      <h3 class="text-xl font-semibold text-purple-400">B.Eng. Marine Engineering (First Class Honors)</h3>
+      <p class="text-sm text-gray-400">Nigeria Maritime University · 2019 — 2024</p>
+      <p class="mt-2 text-gray-300">Specialized in systems engineering, safety protocols, and mechanical diagnostics.</p>
+      <div class="mt-3 flex flex-wrap gap-3">
+        <a href="/static/docs/transcript.pdf" target="_blank" class="text-sm text-purple-300 hover:underline">📄 View Transcript</a>
+        <a href="/static/docs/degree-certificate.pdf" target="_blank" class="text-sm text-purple-300 hover:underline">📄 Degree Certificate</a>
+      </div>
+    </div>
+
+    <div data-aos="fade-up" data-aos-delay="100" class="relative ml-2">
+      <div class="absolute -left-6 top-2 w-5 h-5 bg-purple-500 rounded-full border-4 border-gray-900"></div>
+      <h3 class="text-xl font-semibold text-purple-400">Capstone Project: OTEC</h3>
+      <p class="text-sm text-gray-400">Ocean Thermal Energy Conversion</p>
+      <p class="mt-2 text-gray-300">Designed a prototype system harnessing ocean temperature gradients to generate renewable energy.</p>
+      <div class="mt-3 flex flex-wrap gap-3">
+        <a href="https://youtu.be/your-capstone-video" target="_blank" class="text-sm text-purple-300 hover:underline">🎥 Watch Project Video</a>
+        <a href="/static/docs/otec-paper.pdf" target="_blank" class="text-sm text-purple-300 hover:underline">📄 Read Project Paper</a>
+      </div>
+    </div>
+
+    <div data-aos="fade-up" data-aos-delay="200" class="relative ml-2">
+      <div class="absolute -left-6 top-2 w-5 h-5 bg-purple-500 rounded-full border-4 border-gray-900"></div>
+      <h3 class="text-xl font-semibold text-purple-400">Relevant Courses</h3>
+      <p class="mt-2 text-gray-300">Cybersecurity · Python Programming · Thermodynamics · Control Systems</p>
+    </div>
+  </div>
+
+  <div class="mt-16">
+    <div class="flex gap-4 border-b border-gray-700 pb-2">
+      <button class="tab-btn active text-purple-400 pb-2" data-tab="courses">Courses</button>
+      <button class="tab-btn text-gray-400 hover:text-purple-300 pb-2" data-tab="projects">Projects</button>
+      <button class="tab-btn text-gray-400 hover:text-purple-300 pb-2" data-tab="certs">Certifications</button>
+    </div>
+
+    <div id="courses" class="tab-content grid md:grid-cols-2 gap-6 mt-6">
+      <div data-aos="zoom-in" class="bg-gray-900 border border-gray-700 rounded-xl p-5 hover:shadow-lg hover:shadow-purple-500/30 transition">
+        <h4 class="text-purple-400 font-semibold text-lg">Cybersecurity</h4>
+        <p class="text-gray-300 text-sm mt-2">Threat modeling, SIEM workflows, network defense, incident response.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="skill-tag">SIEM</span>
+          <span class="skill-tag">IDS</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">Threat Modeling</span>
+        </div>
+        <button class="acc-btn mt-4 text-sm text-purple-300 hover:underline" data-acc="#acc-cyber">More details</button>
+        <div id="acc-cyber" class="acc-panel hidden mt-3 text-sm text-gray-300">
+          Hands-on with log analysis, rule tuning, and alert triage. Built small detection playbooks and response checklists.
+        </div>
+      </div>
+
+      <div data-aos="zoom-in" data-aos-delay="100" class="bg-gray-900 border border-gray-700 rounded-xl p-5 hover:shadow-lg hover:shadow-purple-500/30 transition">
+        <h4 class="text-purple-400 font-semibold text-lg">Python Programming</h4>
+        <p class="text-gray-300 text-sm mt-2">Automation, data parsing, and tooling for engineering workflows.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Bash</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Flask</span>
+        </div>
+        <button class="acc-btn mt-4 text-sm text-purple-300 hover:underline" data-acc="#acc-python">More details</button>
+        <div id="acc-python" class="acc-panel hidden mt-3 text-sm text-gray-300">
+          Built CLI tools, API integrations, and small Flask apps. Emphasis on clean code, testing, and documentation.
+        </div>
+      </div>
+    </div>
+
+    <div id="projects" class="tab-content hidden mt-6 space-y-6">
+      <div data-aos="fade-up" data-aos-delay="0" class="bg-gray-900/60 border border-purple-600/50 rounded-xl p-6 project-card-hover">
+        <h3 class="text-xl font-semibold text-purple-400">Ocean Thermal Energy Conversion (OTEC)</h3>
+        <p class="text-gray-300 mt-2 text-sm">Explored renewable energy via ocean thermal gradients. Modeled heat exchangers and cycle efficiency; simulated in MATLAB; designed components in SolidWorks.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="skill-tag">OTEC</span>
+          <span class="skill-tag">Thermodynamics</span>
+          <span class="skill-tag">MATLAB</span>
+          <span class="skill-tag">SolidWorks</span>
+          <span class="skill-tag">Technical Writing</span>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-4">
+          <a href="https://youtu.be/your-capstone-video" target="_blank" class="text-sm text-purple-300 hover:underline">🎥 Watch Video</a>
+          <a href="/static/docs/otec-poster.pdf" target="_blank" class="text-sm text-purple-300 hover:underline">📄 Poster</a>
+          <a href="/static/docs/otec-paper.pdf" target="_blank" class="text-sm text-purple-300 hover:underline">📄 Paper</a>
+        </div>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="50" class="bg-gray-900/60 border border-purple-600/50 rounded-xl p-6 project-card-hover">
+        <h3 class="text-xl font-semibold text-purple-400">Securing the Access Grid – Cybershield Corp</h3>
+        <p class="text-gray-300 mt-2 text-sm">Led a simulated enterprise security overhaul, implementing MFA and network segmentation to reduce attack surface by 40%. Coordinated red‑team/blue‑team exercises to test resilience.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="skill-tag">MFA</span>
+          <span class="skill-tag">Network Segmentation</span>
+          <span class="skill-tag">Incident Response</span>
+          <span class="skill-tag">SOC Practices</span>
+        </div>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="100" class="bg-gray-900/60 border border-purple-600/50 rounded-xl p-6 project-card-hover">
+        <h3 class="text-xl font-semibold text-purple-400">Advanced Phishing Incident Response – Eurotrans Logistics</h3>
+        <p class="text-gray-300 mt-2 text-sm">Simulated a phishing breach, performed forensic email header analysis, deployed endpoint detection, and reduced compromise rate from 65% to under 10% in follow‑up testing.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="skill-tag">Phishing Simulation</span>
+          <span class="skill-tag">Forensics</span>
+          <span class="skill-tag">EDR</span>
+          <span class="skill-tag">Email Security</span>
+        </div>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="150" class="bg-gray-900/60 border border-purple-600/50 rounded-xl p-6 project-card-hover">
+        <h3 class="text-xl font-semibold text-purple-400">Network Design – Kafitech Solution</h3>
+        <p class="text-gray-300 mt-2 text-sm">Designed and configured a secure VLAN architecture with ACLs and firewall rules for a mid‑sized corporate network. Delivered documentation and training for in‑house IT staff.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="skill-tag">VLAN</span>
+          <span class="skill-tag">ACL</span>
+          <span class="skill-tag">Firewall</span>
+          <span class="skill-tag">Network Security</span>
+        </div>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="200" class="bg-gray-900/60 border border-purple-600/50 rounded-xl p-6 project-card-hover">
+        <h3 class="text-xl font-semibold text-purple-400">Python‑Based Website Monitoring Tool</h3>
+        <p class="text-gray-300 mt-2 text-sm">Developed a script to monitor uptime, SSL validity, and response times for multiple client websites, integrating Slack API for real‑time alerts.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">API Integration</span>
+          <span class="skill-tag">Monitoring</span>
+          <span class="skill-tag">Automation</span>
+        </div>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="250" class="bg-gray-900/60 border border-purple-600/50 rounded-xl p-6 project-card-hover">
+        <h3 class="text-xl font-semibold text-purple-400">SIEM Deployment & Log Analysis Lab</h3>
+        <p class="text-gray-300 mt-2 text-sm">Built a home lab using Splunk and Elastic Stack to ingest, parse, and visualize security logs. Created dashboards to detect brute‑force attempts and anomalies.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="skill-tag">Splunk</span>
+          <span class="skill-tag">Elastic Stack</span>
+          <span class="skill-tag">Log Analysis</span>
+          <span class="skill-tag">Threat Detection</span>
+        </div>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="300" class="bg-gray-900/60 border border-purple-600/50 rounded-xl p-6 project-card-hover">
+        <h3 class="text-xl font-semibold text-purple-400">Vulnerability Assessment for SME Infrastructure</h3>
+        <p class="text-gray-300 mt-2 text-sm">Conducted vulnerability scans using Nessus and OpenVAS on a simulated SME network. Produced a remediation plan prioritizing critical CVEs and misconfigurations.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="skill-tag">Nessus</span>
+          <span class="skill-tag">OpenVAS</span>
+          <span class="skill-tag">Vulnerability Management</span>
+          <span class="skill-tag">Risk Assessment</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="certs" class="tab-content hidden mt-6 grid md:grid-cols-2 gap-6">
+      <div data-aos="zoom-in" data-aos-delay="0" class="bg-gray-900 border border-gray-700 rounded-xl p-5 cert-card-hover">
+        <h4 class="text-purple-400 font-semibold text-lg">Google Cybersecurity Certificate</h4>
+        <p class="text-gray-300 text-sm mt-2">Earned 2024 · Coursera</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="skill-tag">SIEM</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">SQL</span>
+        </div>
+        <a href="/static/docs/google-cybersecurity.pdf" target="_blank" class="mt-4 inline-block text-sm text-purple-300 hover:underline">📄 View Certificate</a>
+      </div>
+      <div data-aos="zoom-in" data-aos-delay="50" class="bg-gray-900 border border-gray-700 rounded-xl p-5 cert-card-hover">
+        <h4 class="text-purple-400 font-semibold text-lg">Cybersecurity & Digital Forensics Internship</h4>
+        <p class="text-gray-300 text-sm mt-2">Cyber Secured India</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="skill-tag">Burpsuite</span>
+          <span class="skill-tag">APIs</span>
+          <span class="skill-tag">Wireshark</span>
+        </div>
+        <a href="/static/docs/cybersec.pdf" target="_blank" class="mt-4 inline-block text-sm text-purple-300 hover:underline">📄 View Certificate</a>
+      </div>
+      <div data-aos="zoom-in" data-aos-delay="100" class="bg-gray-900 border border-gray-700 rounded-xl p-5 cert-card-hover">
+        <h4 class="text-purple-400 font-semibold text-lg">CompTIA Security+ (Planned/2026-2027)</h4>
+        <p class="text-gray-300 text-sm mt-2">Validates core security skills and best practices.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="skill-tag">Security Fundamentals</span>
+          <span class="skill-tag">Risk Management</span>
+          <span class="skill-tag">Network Security</span>
+        </div>
+      </div>
+      <div data-aos="zoom-in" data-aos-delay="150" class="bg-gray-900 border border-gray-700 rounded-xl p-5 cert-card-hover">
+        <h4 class="text-purple-400 font-semibold text-lg">Cisco Certified CyberOps Associate (Planned/2026-2027)</h4>
+        <p class="text-gray-300 text-sm mt-2">Focused on SOC operations, monitoring, and incident response.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="skill-tag">SOC Operations</span>
+          <span class="skill-tag">Incident Response</span>
+          <span class="skill-tag">Security Monitoring</span>
+        </div>
+      </div>
+      <div data-aos="zoom-in" data-aos-delay="200" class="bg-gray-900 border border-gray-700 rounded-xl p-5 cert-card-hover">
+        <h4 class="text-purple-400 font-semibold text-lg">Microsoft Certified (Planned/2026-2027): Security, Compliance, and Identity Fundamentals</h4>
+        <p class="text-gray-300 text-sm mt-2">Demonstrates foundational knowledge of Microsoft security solutions.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="skill-tag">Microsoft Security</span>
+          <span class="skill-tag">Compliance</span>
+          <span class="skill-tag">Identity Management</span>
+        </div>
+      </div>
+      <div data-aos="zoom-in" data-aos-delay="250" class="bg-gray-900 border border-gray-700 rounded-xl p-5 cert-card-hover">
+        <h4 class="text-purple-400 font-semibold text-lg">AWS Certified Cloud Practitioner (Planned/2026-2027)</h4>
+        <p class="text-gray-300 text-sm mt-2">Covers cloud security basics and AWS services.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">Cloud Security</span>
+          <span class="skill-tag">Cloud Fundamentals</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-16 grid md:grid-cols-2 gap-6">
+    <div data-aos="fade-up" class="flex items-center gap-4">
+      <i class="fas fa-award text-purple-400 text-2xl"></i>
+      <div>
+        <h4 class="text-purple-400 font-semibold">First Class Honors</h4>
+        <p class="text-gray-300 text-sm">Graduated top of class with distinction.</p>
+      </div>
+    </div>
+    <div data-aos="fade-up" data-aos-delay="100" class="flex items-center gap-4">
+      <i class="fas fa-certificate text-purple-400 text-2xl"></i>
+      <div>
+        <h4 class="text-purple-400 font-semibold">Google Professional Cybersecurity Certificate</h4>
+        <p class="text-gray-300 text-sm">Earned in 2024 via Coursera.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-16 grid grid-cols-3 gap-6 text-center text-purple-400 font-semibold text-lg">
+    <div data-aos="fade-up">CGPA<br><span class="text-white text-3xl font-bold counter" data-target="4.51" data-decimals="2">0.00</span></div>
+    <div data-aos="fade-up" data-aos-delay="100">Certifications<br><span class="text-white text-3xl font-bold counter" data-target="6">0</span></div>
+    <div data-aos="fade-up" data-aos-delay="200">Projects<br><span class="text-white text-3xl font-bold counter" data-target="12">0</span>+</div>
+  </div>
+
+  <div class="absolute inset-0 -z-10 pointer-events-none">
+    <div class="animate-pulse-slow opacity-10 bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900 w-full h-full"></div>
+  </div>
+</section>
+
+<style>
+/* Skill tag badge */
+.skill-tag {
+  background-color: #4c1d95;
+  color: #e0e7ff;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 0.375rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.skill-tag:hover {
+  background-color: #6d28d9;
+  transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+/* Project card hover effect */
+.project-card-hover {
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 0 rgba(0,0,0,0); /* Initial shadow */
+}
+.project-card-hover:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(76, 29, 149, 0.4); /* Purple shadow */
+}
+
+/* Certification card hover effect */
+.cert-card-hover {
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 0 rgba(0,0,0,0); /* Initial shadow */
+}
+.cert-card-hover:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 8px 15px rgba(167, 139, 250, 0.3); /* Lighter purple shadow */
+}
+
+/* Slow subtle background pulse */
+@keyframes pulse-slow { 0%, 100% { opacity: 0.1; } 50% { opacity: 0.2; } }
+.animate-pulse-slow { animation: pulse-slow 12s ease-in-out infinite; }
+
+/* Tabs active state */
+.tab-btn.active { border-bottom: 2px solid #a78bfa; color: #a78bfa; }
+
+/* Accordion panels */
+.acc-panel.hidden { display: none; }
+
+/* Fade-in for tab content - Add this to your main CSS file or within <style> tags */
+.tab-content {
+  animation: fadeIn 0.5s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+<script>
+// Tabs
+(function() {
+  const btns = document.querySelectorAll('.tab-btn');
+  const contents = document.querySelectorAll('.tab-content');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.tab;
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      // Add a small delay for the fade-out effect before showing new content
+      contents.forEach(c => c.classList.add('hidden'));
+      setTimeout(() => {
+        const target = document.getElementById(id);
+        if (target) {
+          target.classList.remove('hidden');
+          // Restart AOS animations for newly visible content
+          AOS.refreshHard(); 
+        }
+      }, 50); // Short delay
+    });
+  });
+})();
+
+// Accordion toggles
+document.querySelectorAll('.acc-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const selector = btn.getAttribute('data-acc');
+    const panel = document.querySelector(selector);
+    if (!panel) return;
+    const isHidden = panel.classList.contains('hidden');
+    document.querySelectorAll('.acc-panel').forEach(p => p.classList.add('hidden'));
+    if (isHidden) panel.classList.remove('hidden');
+  });
+});
+
+// Animated counters
+(function() {
+  const counters = document.querySelectorAll('.counter');
+  if (!('IntersectionObserver' in window)) {
+    counters.forEach(c => c.textContent = c.dataset.target);
+    return;
+  }
+  const animate = (el) => {
+    const target = parseFloat(el.dataset.target || '0');
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    const duration = 1200; // ms
+    const startTime = performance.now();
+    const startVal = 0;
+    const step = (now) => {
+      const p = Math.min((now - startTime) / duration, 1);
+      const val = startVal + (target - startVal) * p;
+      el.textContent = decimals ? val.toFixed(decimals) : Math.floor(val).toString();
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animate(e.target);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => obs.observe(c));
+})();
+
+// Initialize AOS (if not already initialized in base.html)
+// Make sure you have the AOS library linked in your base.html or before this script.
+// <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+// <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</script>
+{% endblock %}

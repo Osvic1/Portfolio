@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Load Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<section class="bg-gray-900 text-white py-20" id="contact">
+  <div class="container mx-auto px-6 md:px-12 lg:px-20 grid md:grid-cols-2 gap-12 items-start">
+
+    <!-- Left Side -->
+    <div class="space-y-6 animate__animated animate__fadeInLeft">
+      <h4 class="text-green-400 text-lg font-mono typing-container">
+        <span class="typing-text"></span>
+        <span class="cursor"></span>
+      </h4>
+
+      <h2 class="text-4xl font-bold">Contact Me</h2>
+      <h3 class="text-2xl text-purple-400 font-semibold">Let’s work together!</h3>
+      <p class="text-gray-300">
+        I’m open to full-time, freelance, or collaboration opportunities.  
+        Feel free to reach out for a project, a chat, or just to say hi!
+      </p>
+
+      <!-- Let’s Connect Badge -->
+      <div class="inline-block bg-purple-800 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md mb-4">
+        <i class="fas fa-handshake mr-2"></i> Let’s Connect
+      </div>
+
+      <!-- Contact Info -->
+      <ul class="space-y-3">
+        <li class="flex items-center gap-3">
+          <i class="fa-solid fa-envelope text-purple-400"></i>
+          <a href="mailto:Timothyv952@gmail.com" class="hover:text-purple-300">
+            Timothyv952@gmail.com
+          </a>
+        </li>
+        <li class="flex items-center gap-3">
+          <i class="fa-brands fa-linkedin text-purple-400"></i>
+          <a href="https://www.linkedin.com/in/timothy-victor-a61421223/" target="_blank" rel="noopener noreferrer" class="hover:text-purple-300">
+            LinkedIn
+          </a>
+        </li>
+        <li class="flex items-center gap-3">
+          <i class="fa-brands fa-github text-purple-400"></i>
+          <a href="https://github.com/Osvic1/Website-Monitoring-Dashboard" target="_blank" rel="noopener noreferrer" class="hover:text-purple-300">
+            GitHub
+          </a>
+        </li>
+        <li class="flex items-center gap-3">
+          <i class="fab fa-whatsapp text-green-400"></i>
+          <a href="https://wa.me/2349032689926" target="_blank" rel="noopener noreferrer" class="hover:text-green-300">
+            WhatsApp
+          </a>
+        </li>
+      </ul>
+
+      <!-- Availability Status -->
+      <div class="mt-4 text-sm text-gray-400">
+        <i class="fas fa-clock text-purple-400 mr-2"></i>
+        Typically replies within 1–2 hours • Available: Mon–Sat, 9am–6pm WAT
+      </div>
+
+      <!-- Quick Access Buttons -->
+      <div class="mt-6 flex gap-4">
+        <a href="{{ socials.resume }}" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-sm text-white transition">
+          <i class="fas fa-file-alt mr-2"></i> Download Resume
+        </a>
+        <a href="{{ url_for('projects') }}" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg text-sm text-white transition">
+          <i class="fas fa-code mr-2"></i> View Projects
+        </a>
+      </div>
+
+      <!-- Embedded Map -->
+      <div class="mt-10">
+        <h3 class="text-lg font-semibold text-purple-400 mb-2">My Location</h3>
+        <div class="rounded-lg overflow-hidden shadow-lg">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.847013447231!2d3.2825!3d6.6075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8f3e3f3e3f3f%3A0x3f3e3f3e3f3e3f3f!2sEgbeda%2C%20Lagos!5e0!3m2!1sen!2sng!4v1690000000000"
+            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side (Contact Form) -->
+    <form method="POST" action="{{ url_for('contact') }}" class="glass p-8 rounded-2xl shadow-xl space-y-6 animate__animated animate__fadeInRight">
+      <h3 class="text-xl font-semibold text-purple-400 mb-4">Send a Message</h3>
+
+      <div>
+        <label class="block text-sm text-gray-400 mb-1">Name</label>
+        <input required name="name" type="text" placeholder="Your Name"
+          class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-400 transition">
+      </div>
+
+      <div>
+        <label class="block text-sm text-gray-400 mb-1">Email</label>
+        <input required name="email" type="email" placeholder="you@email.com"
+          class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-400 transition">
+      </div>
+
+      <!-- Inquiry Type Dropdown -->
+      <div>
+        <label class="block text-sm text-gray-400 mb-1">Inquiry Type</label>
+        <select name="type" class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-purple-500 text-white">
+          <option value="project">Project Inquiry</option>
+          <option value="collaboration">Collaboration</option>
+          <option value="mentorship">Mentorship</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-sm text-gray-400 mb-1">Message</label>
+        <textarea required name="message" rows="5" placeholder="Type your message..."
+          class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-400 transition"></textarea>
+      </div>
+
+      <button type="submit"
+        class="w-full px-6 py-3 rounded-lg bg-purple-600 hover:bg-purple-700 font-semibold shadow-lg transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+        <i class="fas fa-paper-plane"></i> Send Message
+      </button>
+
+      {% if success %}
+      <div class="mt-6 bg-green-800 border border-green-500 text-green-100 rounded-lg p-4 shadow-lg animate__animated animate__fadeInUp">
+        <i class="fas fa-check-circle text-green-300 mr-2"></i>
+        Your message has been sent successfully. I’ll get back to you shortly!
+      </div>
+      {% endif %}
+    </form>
+  </div>
+</section>
+
+<!-- Typing animation -->
+<style>
+  .typing-container {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: #22c55e;
+    margin-left: 4px;
+    animation: blink 0.7s infinite;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
+  }
+</style>
+
+<script>
+const text = "We can be partners";
+let i = 0;
+let isDeleting = false;
+const speed = 120;
+const eraseSpeed = 80;
+const delay = 1000;
+
+function typingEffect() {
+  const element = document.querySelector(".typing-text");
+
+  if (!isDeleting && i < text.length) {
+    element.innerHTML = text.substring(0, i + 1);
+    i++;
+    setTimeout(typingEffect, speed);
+  } else if (isDeleting && i > 0) {
+    element.innerHTML = text.substring(0, i - 1);
+    i--;
+    setTimeout(typingEffect, eraseSpeed);
+  } else {
+    isDeleting = !isDeleting;
+    setTimeout(typingEffect, delay);
+  }
+}
+
+typingEffect();
+</script>
+{% endblock %}

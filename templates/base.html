@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{{ title }} | Portfolio</title>
+
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Animate.css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet"/>
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.0/css/all.css"
+          integrity="sha384-tGBVFh2h9Zcme3k9gJLbGqDpD+jRd419j/6N32rharcTZa1X6xgxug6pFMGonjxU"
+          crossorigin="anonymous">
+
+    <!-- Custom Styles -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+    <meta name="theme-color" content="#0b1020"/>
+    <style>
+        body {
+            background: radial-gradient(1200px 600px at 80% -10%, rgba(139,92,246,.2), transparent),
+                        radial-gradient(800px 400px at -10% 40%, rgba(16,185,129,.12), transparent),
+                        linear-gradient(180deg, #0b1020 0%, #0b0f1a 100%);
+        }
+        .glass {
+            backdrop-filter: blur(8px);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .u:after {
+            content:"";
+            position:absolute;
+            left:0;
+            bottom:-4px;
+            height:2px;
+            width:0;
+            background:linear-gradient(90deg,#8b5cf6,#22d3ee);
+            transition:width .25s;
+        }
+        .u:hover:after { width:100%; }
+        .typing-container {
+            min-width: 250px;
+            width: max-content;
+            height: 25px;
+            overflow: hidden;
+        }
+        @keyframes skill-motion {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .skill-tag {
+            background-color: rgb(126 34 206);
+            color: rgb(229 231 235);
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease-in-out;
+            animation: skill-motion 3s ease-in-out infinite;
+        }
+        .skill-tag:hover { background-color: rgb(91 33 182); }
+        @keyframes perpetual-motion {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .perpetual-motion {
+            animation: perpetual-motion 3s ease-in-out infinite;
+            display: block;
+            position: relative;
+        }
+        .active { color: #a78bfa !important; }
+
+        /* Keep spacing for all sections except the first one */
+        section {
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+        }
+        section:first-of-type {
+            margin-top: 0;
+        }
+        @media (min-width: 768px) {
+            section {
+                margin-top: 6rem;
+                margin-bottom: 6rem;
+            }
+            section:first-of-type {
+                margin-top: 0;
+            }
+        }
+
+        /* Make all images responsive */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 640px) { /* Tailwind sm breakpoint */
+            .typing-container {
+                min-width: 200px; /* Reduce min-width for small screens */
+            }
+            .skill-tag {
+                padding: 2px 8px; /* Smaller padding on mobile */
+                font-size: 0.75rem; /* Smaller font size */
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-100 antialiased">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-40 bg-opacity-60 bg-gray-900 backdrop-filter backdrop-blur border-b border-white border-opacity-10">
+        <nav class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+            <a href="{{ url_for('home') }}" class="font-bold text-lg tracking-wide">🚀 <span class="text-purple-400">My</span>Portfolio</a>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden px-3 py-2 border rounded text-gray-300 hover:text-white" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Desktop Nav -->
+            <ul class="hidden md:flex space-x-6 font-medium">
+                <li><a class="u relative" href="{{ url_for('home') }}">Home</a></li>
+                <li><a class="u relative" href="{{ url_for('about') }}">About</a></li>
+                <li><a class="u relative" href="{{ url_for('education') }}">Education</a></li>
+                <li><a class="u relative" href="{{ url_for('experience') }}">Experience</a></li>
+                <li><a class="u relative" href="{{ url_for('projects') }}">Projects</a></li>
+                <li><a class="u relative" href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Mobile Nav -->
+        <div id="mobileMenu" class="md:hidden hidden px-4 pb-4 space-y-2 bg-gray-900">
+            <a class="block py-2 u relative" href="{{ url_for('home') }}">Home</a>
+            <a class="block py-2 u relative" href="{{ url_for('about') }}">About</a>
+            <a class="block py-2 u relative" href="{{ url_for('education') }}">Education</a>
+            <a class="block py-2 u relative" href="{{ url_for('experience') }}">Experience</a>
+            <a class="block py-2 u relative" href="{{ url_for('projects') }}">Projects</a>
+            <a class="block py-2 u relative" href="{{ url_for('contact') }}">Contact</a>
+        </div>
+    </header>
+
+    <!-- Flash Messages -->
+    <div class="fixed top-4 inset-x-0 flex flex-col items-center z-50 space-y-2 px-4">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="glass rounded-lg px-4 py-2 shadow-lg w-full max-w-md text-center
+                                {% if category=='success' %} border-green-400 text-green-200 {% else %} border-red-400 text-red-200 {% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <!-- Main Content -->
+    <main class="min-h-screen px-4 sm:px-6 lg:px-8">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white border-opacity-10 mt-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 flex flex-col md:flex-row items-center md:justify-between text-sm text-gray-400 gap-4">
+            <p class="text-center md:text-left">© 2025 TIMVictor — Crafted with Flask & Tailwind</p>
+            <div class="flex flex-wrap justify-center md:justify-end gap-4">
+                <a class="hover:text-white" href="mailto:timothyv952@gmail.com">Email</a>
+                <a class="hover:text-white" href="https://linkedin.com/in/timothy-victor-a61421223/" target="_blank">LinkedIn</a>
+                <a class="hover:text-white" href="https://github.com/Osvic1" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 800, once: true });
+    </script>
+    <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.getElementById('exp-slider');
+    let index = 0;
+    const slides = slider?.children;
+    const total = slides?.length || 0;
+
+    setInterval(() => {
+      if (!slider || total === 0) return;
+      index = (index + 1) % total;
+      slider.style.transform = `translateX(-${index * 100}%)`;
+    }, 4000); // Change every 4 seconds
+  });
+</script>
+</body>
+</html>

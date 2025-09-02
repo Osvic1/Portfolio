@@ -1,0 +1,67 @@
+@keyframes bubble-motion {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        transform: scale(1.03);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.bubble-card {
+    animation: bubble-motion 4s ease-in-out infinite var(--bubble-delay, 0s);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.08));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.bubble-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+.company-tag {
+    background-color: #4b5bf7;
+    color: #ffffff;
+    padding: 0.75rem 0.25rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.company-tag:hover {
+    background-color: #3b45c7;
+    box-shadow: 0 0 10px rgba(75, 91, 247, 0.5);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 640px) { /* Tailwind sm breakpoint */
+    .bubble-card {
+        padding: 0.75rem;
+    }
+    .company-tag {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.25rem;
+    }
+}
+
+@media (min-width: 1024px) { /* Tailwind lg breakpoint */
+    .bubble-card {
+        padding: 1.25rem;
+    }
+    .company-tag {
+        font-size: 0.875rem;
+        padding: 0.75rem 0.5rem;
+    }
+}
