@@ -1,6 +1,8 @@
+markdown
+
 # 🌐 My Portfolio
 
-This is my personal portfolio website built with **Flask**, featuring sections about me, my skills, education, projects, and contact information.
+This is my personal portfolio website built with **Flask**, featuring sections about me, my skills, education, projects, and contact information.  
 It is designed to be **responsive, modern, and professional**.
 
 ---
@@ -18,6 +20,7 @@ It is designed to be **responsive, modern, and professional**.
 ## 📂 Project Structure
 
 ```
+
 MYPORTFOLIO/
 │── static/
 │   ├── css/
@@ -42,6 +45,7 @@ MYPORTFOLIO/
 │── Procfile           # Deployment process for Render
 │── .env               # Environment variables (not in Git)
 │── README.md          # Project documentation
+
 ```
 
 ---
@@ -49,11 +53,12 @@ MYPORTFOLIO/
 ## 🛠️ Installation & Setup
 
 1. Clone this repository:
-
    ```bash
    git clone https://github.com/Osvic1/Portfolio.git
    cd Portfolio
    ```
+
+````
 
 2. Create and activate a virtual environment:
 
@@ -87,9 +92,9 @@ MYPORTFOLIO/
 
 This portfolio is configured to deploy on **Render**:
 
-- Uses `Procfile` for Gunicorn
-- Uses `runtime.txt` for Python version
-- Auto-deploys from GitHub when new commits are pushed
+* Uses `Procfile` for Gunicorn
+* Uses `runtime.txt` for Python version
+* Auto-deploys from GitHub when new commits are pushed
 
 Steps:
 
@@ -104,6 +109,7 @@ Steps:
 
 I’d love to connect! Feel free to reach out through any of the platforms below:
 
-- 📩 **Email:** [timothyv952@gmail.com](mailto:timothyv952@gmail.com)
-- 💼 **LinkedIn:** [Timothy Victor](https://www.linkedin.com/in/timothy-victor-a61421223/)
-- 💻 **GitHub:** [Osvic1](https://github.com/Osvic1/Portfolio)
+[![Email](https://img.shields.io/badge/Email-timothyv952%40gmail.com-red?style=for-the-badge\&logo=gmail\&logoColor=white)](mailto:timothyv952@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Timothy%20Victor-blue?style=for-the-badge\&logo=linkedin\&logoColor=white)](https://www.linkedin.com/in/timothy-victor-a61421223/)
+[![GitHub](https://img.shields.io/badge/GitHub-Osvic1-black?style=for-the-badge\&logo=github\&logoColor=white)](https://github.com/Osvic1/Portfolio)
+````
