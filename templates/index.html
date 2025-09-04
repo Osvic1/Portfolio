@@ -1,19 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!-- ===== FONT UPDATES (head imports should be in base.html, but included here if you want local testing) ===== -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+  body {
+    font-family: 'Roboto Mono', monospace;
+  }
+  .counter {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #a78bfa; /* Tailwind purple-400 */
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+</style>
+
+<!-- ===== HERO SECTION ===== -->
 <section class="pt-16 md:pt-32 pb-24 flex flex-col md:flex-row items-start justify-between gap-10 animate__animated animate__fadeIn">
   <!-- Left: Hero text -->
-  <div class="md:w-1/2 space-y-4">
+  <div class="md:w-1/2 space-y-4" data-aos="fade-right">
     <div class="typing-container">
-      <p id="typing-text" class="text-green-400 font-mono"></p>
+      <p id="typing-text" class="text-green-400"></p>
     </div>
-    <h1 class="text-5xl md:text-7xl font-extrabold text-white">
+    <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white">
       Timothy <span class="text-purple-400 animate__animated animate__bounce animate__infinite">Victor Osas</span>.
     </h1>
-    <h2 class="text-3xl md:text-5xl font-bold text-cyan-300 leading-tight">
+    <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-cyan-300 leading-tight">
       Cybersecurity Specialist & Digital Forensics Analyst
     </h2>
-    <p class="text-gray-300 text-lg leading-relaxed">
+    <p class="text-gray-300 text-lg leading-relaxed font-light">
       First Class Honours Marine Engineering graduate with a passion for safeguarding digital environments.
       Skilled in threat detection, incident response, and forensic analysis — delivering secure, modern, and reliable solutions.
     </p>
@@ -29,17 +47,17 @@
   </div>
 
   <!-- Right: Experience slider -->
-  <div class="md:w-1/3 glass rounded-2xl p-6 shadow-xl relative overflow-hidden">
+  <div class="md:w-1/3 glass rounded-2xl p-6 shadow-xl relative overflow-hidden" data-aos="fade-left">
     <div class="flex items-center justify-between">
-      <h3 class="text-xl font-semibold text-white">Core Competencies</h3>
+      <h3 class="text-xl font-semibold tracking-tight text-white">Core Competencies</h3>
     </div>
     <div class="relative overflow-hidden w-full h-auto md:h-48 mt-6">
       <div id="exp-slider" class="flex transition-transform duration-700 ease-in-out">
 
         <!-- Penetration Testing -->
         <div class="exp-slide w-full flex-none p-2 space-y-4">
-          <h4 class="font-semibold text-teal-400">🔒 Penetration Testing</h4>
-          <p class="text-gray-300 text-sm">Expert in vulnerability scanning and ethical hacking to secure systems.</p>
+          <h4 class="font-semibold tracking-tight text-teal-400">🔒 Penetration Testing</h4>
+          <p class="text-gray-300 text-sm font-light">Expert in vulnerability scanning and ethical hacking to secure systems.</p>
           <div class="flex flex-wrap gap-4 pt-2">
             <i class="fas fa-lock text-purple-400 text-3xl"></i>
             <i class="fas fa-search text-cyan-400 text-3xl"></i>
@@ -52,8 +70,8 @@
 
         <!-- Python Automation -->
         <div class="exp-slide w-full flex-none p-2 space-y-4">
-          <h4 class="font-semibold text-teal-400">🐍 Python Automation</h4>
-          <p class="text-gray-300 text-sm">Building monitoring tools and scripts for network security and forensics.</p>
+          <h4 class="font-semibold tracking-tight text-teal-400">🐍 Python Automation</h4>
+          <p class="text-gray-300 text-sm font-light">Building monitoring tools and scripts for network security and forensics.</p>
           <div class="flex flex-wrap gap-4 pt-2">
             <i class="fab fa-python text-blue-400 text-3xl"></i>
             <i class="fas fa-microchip text-purple-400 text-3xl"></i>
@@ -66,8 +84,8 @@
 
         <!-- Network Design -->
         <div class="exp-slide w-full flex-none p-2 space-y-4">
-          <h4 class="font-semibold text-teal-400">🛡️ Network Design</h4>
-          <p class="text-gray-300 text-sm">Implementing firewalls, VPNs, and IDS for robust threat prevention.</p>
+          <h4 class="font-semibold tracking-tight text-teal-400">🛡️ Network Design</h4>
+          <p class="text-gray-300 text-sm font-light">Implementing firewalls, VPNs, and IDS for robust threat prevention.</p>
           <div class="flex flex-wrap gap-4 pt-2">
             <i class="fas fa-shield-virus text-orange-400 text-3xl"></i>
             <i class="fas fa-lock text-blue-400 text-3xl"></i>
@@ -80,8 +98,8 @@
 
         <!-- Digital Forensics -->
         <div class="exp-slide w-full flex-none p-2 space-y-4">
-          <h4 class="font-semibold text-teal-400">🔍 Digital Forensics</h4>
-          <p class="text-gray-300 text-sm">Analyzing compromised systems and securing evidence with precision.</p>
+          <h4 class="font-semibold tracking-tight text-teal-400">🔍 Digital Forensics</h4>
+          <p class="text-gray-300 text-sm font-light">Analyzing compromised systems and securing evidence with precision.</p>
           <div class="flex flex-wrap gap-4 pt-2">
             <i class="fas fa-folder-open text-gray-400 text-3xl"></i>
             <i class="fas fa-search text-purple-400 text-3xl"></i>
@@ -94,8 +112,89 @@
 
       </div>
     </div>
-    <!-- Navigation arrows removed -->
   </div>
+</section>
+
+<!-- ===== CYBERSECURITY HIGHLIGHTS ===== -->
+<section id="cyber-highlights" class="py-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center" data-aos="zoom-in-up">
+  <div class="glass p-6 rounded-xl shadow-lg bubble-animate">
+    <p class="counter" data-count="4">0</p>
+    <p class="text-gray-400 mt-2 font-light">Cybersecurity Certifications</p>
+    <ul class="mt-4 text-sm text-gray-300 space-y-1 font-light">
+      <li>Google Professional Cybersecurity Certificate</li>
+      <li>Cybersecurity & Digital Forensics – Cyber Secured India</li>
+      <li>3MTT Nigeria Cybersecurity Certificate</li>
+      <li>TECH4DEV Cybersecurity Course</li>
+    </ul>
+  </div>
+  <div class="glass p-6 rounded-xl shadow-lg bubble-animate">
+    <p class="counter" data-count="5">0</p>
+    <p class="text-gray-400 mt-2 font-light">Core Cybersecurity Skills</p>
+    <ul class="mt-4 text-sm text-gray-300 space-y-1 font-light">
+      <li>Penetration Testing & Vulnerability Analysis</li>
+      <li>Digital Forensics & Incident Response</li>
+      <li>SIEM Tools & IDS</li>
+      <li>Network Security & Firewall Management</li>
+      <li>Traffic Analysis (Burp Suite)</li>
+    </ul>
+  </div>
+  <div class="glass p-6 rounded-xl shadow-lg bubble-animate">
+    <p class="counter" data-count="1">0</p>
+    <p class="text-gray-400 mt-2 font-light">Python Security Project</p>
+    <p class="mt-4 text-sm text-gray-300 font-light">
+      Developed a <strong>Python-based Website Monitoring Tool</strong> to track uptime, detect anomalies, and log incidents for forensic analysis.
+    </p>
+  </div>
+</section>
+
+<!-- ===== FEATURED PROJECT ===== -->
+<section class="py-16" data-aos="fade-up">
+  <h2 class="text-3xl font-bold tracking-tight text-purple-400 mb-6">Featured Project</h2>
+  <div class="glass rounded-xl p-6 flex flex-col md:flex-row gap-6 bubble-animate">
+    <img src="/static/images/wsmd3.png" alt="Python Website Monitoring Tool" class="w-full md:w-1/2 rounded-lg object-cover">
+    <div class="flex flex-col justify-center">
+      <h3 class="text-2xl font-semibold tracking-tight text-white">Python Website Monitoring Tool</h3>
+      <p class="text-gray-300 mt-2 font-light">
+        A custom-built Python application designed to monitor website uptime, detect anomalies, and log incidents for forensic review.
+      </p>
+      <ul class="list-disc list-inside text-gray-400 mt-4 space-y-1 font-light">
+        <li>Automated HTTP status checks and response time logging</li>
+        <li>Alert system for downtime or suspicious activity</li>
+        <li>Integration with forensic logging for incident analysis</li>
+      </ul>
+      <a href="{{ url_for('projects') }}" class="mt-4 inline-block px-5 py-3 rounded-lg border border-purple-500 hover:bg-purple-600 transition">View Project</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CASE STUDIES ===== -->
+<section class="py-16" data-aos="fade-up">
+  <h2 class="text-3xl font-bold tracking-tight text-purple-400 mb-8">Cybersecurity Case Studies</h2>
+  <div class="grid md:grid-cols-2 gap-8">
+    <div class="glass p-6 rounded-xl shadow-lg bubble-animate">
+      <h3 class="text-xl font-semibold tracking-tight text-white">Securing the Access Grid – Cybershield Corp</h3>
+      <p class="text-gray-300 mt-2 font-light">
+        Led a simulated incident response for an advanced phishing attack scenario, implementing containment and recovery strategies.
+      </p>
+    </div>
+    <div class="glass p-6 rounded-xl shadow-lg bubble-animate">
+      <h3 class="text-xl font-semibold tracking-tight text-white">Network Design – Kafitech Solution</h3>
+      <p class="text-gray-300 mt-2 font-light">
+        Designed a secure network infrastructure with VLAN segmentation, ACLs, and firewall rules for a growing tech company.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CALL TO ACTION ===== -->
+<section class="py-16 text-center" data-aos="zoom-in">
+  <h2 class="text-3xl font-bold tracking-tight text-purple-400">Let’s Secure Your Digital Space</h2>
+  <p class="text-gray-400 mt-2 font-light">
+    Looking for a cybersecurity specialist with hands-on experience in threat detection, forensics, and secure system design?
+  </p>
+  <a href="{{ url_for('contact') }}" class="mt-6 inline-block px-6 py-3 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition">
+    Contact Me
+  </a>
 </section>
 
 {% endblock %}

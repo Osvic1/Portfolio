@@ -19,12 +19,16 @@
           integrity="sha384-tGBVFh2h9Zcme3k9gJLbGqDpD+jRd419j/6N32rharcTZa1X6xgxug6pFMGonjxU"
           crossorigin="anonymous">
 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
     <!-- Custom Styles -->
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 
     <meta name="theme-color" content="#0b1020"/>
     <style>
         body {
+            font-family: 'Inter', sans-serif;
             background: radial-gradient(1200px 600px at 80% -10%, rgba(139,92,246,.2), transparent),
                         radial-gradient(800px 400px at -10% 40%, rgba(16,185,129,.12), transparent),
                         linear-gradient(180deg, #0b1020 0%, #0b0f1a 100%);
@@ -33,6 +37,18 @@
             backdrop-filter: blur(8px);
             background: rgba(255,255,255,0.04);
             border: 1px solid rgba(255,255,255,0.08);
+        }
+        @keyframes bubble {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        .bubble-animate {
+            animation: bubble 4s ease-in-out infinite;
+        }
+        .glass:hover {
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+            transform: translateY(-4px);
+            transition: all 0.3s ease;
         }
         .u:after {
             content:"";
@@ -102,14 +118,23 @@
             display: block;
         }
 
+        /* Counter Styling */
+        .counter {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #a78bfa;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
         /* Responsive adjustments */
-        @media (max-width: 640px) { /* Tailwind sm breakpoint */
+        @media (max-width: 640px) {
             .typing-container {
-                min-width: 200px; /* Reduce min-width for small screens */
+                min-width: 200px;
             }
             .skill-tag {
-                padding: 2px 8px; /* Smaller padding on mobile */
-                font-size: 0.75rem; /* Smaller font size */
+                padding: 2px 8px;
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -185,19 +210,134 @@
     <script>
       AOS.init({ duration: 800, once: true });
     </script>
-    <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const slider = document.getElementById('exp-slider');
-    let index = 0;
-    const slides = slider?.children;
-    const total = slides?.length || 0;
 
-    setInterval(() => {
-      if (!slider || total === 0) return;
-      index = (index + 1) % total;
-      slider.style.transform = `translateX(-${index * 100}%)`;
-    }, 4000); // Change every 4 seconds
-  });
+   <style>
+  /* Counter number styling */
+  .counter {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white; /* number in white */
+    display: inline-block;
+  }
+
+  /* White plus sign styling */
+  .plus-sign {
+    color: white;
+    font-weight: bold;
+    margin-left: 2px;
+  }
+</style>
+
+<!-- HOMEPAGE HIGHLIGHTS COUNTER -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const highlightsSection = document.querySelector('#cyber-highlights');
+  if (!highlightsSection) return; // Exit if not on homepage
+
+  const counters = highlightsSection.querySelectorAll('.counter');
+
+  function animateCounter(counter) {
+    const target = parseInt(counter.getAttribute('data-count'), 10);
+    const duration = 1500;
+    const stepTime = Math.max(Math.floor(duration / target), 1);
+    let current = 0;
+
+    const timer = setInterval(function () {
+      current += 1;
+      counter.textContent = current;
+      if (current >= target) {
+        clearInterval(timer);
+      }
+    }, stepTime);
+  }
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.6 });
+
+    counters.forEach(function (counter) {
+      observer.observe(counter);
+    });
+  } else {
+    counters.forEach(function (counter) {
+      animateCounter(counter);
+    });
+  }
+});
 </script>
+
+<!-- EDUCATION COUNTERS -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const eduSection = document.querySelector('#edu-counters');
+  if (!eduSection) return; // Exit if not on Education page
+
+  const counters = eduSection.querySelectorAll('.counter');
+
+  function animateCounter(counter) {
+    const target = parseFloat(counter.getAttribute('data-count'));
+    const isDecimal = target % 1 !== 0;
+    const duration = 1500;
+    const steps = isDecimal ? Math.ceil(target * 100) : target;
+    const stepTime = Math.max(Math.floor(duration / steps), 1);
+    let current = 0;
+
+    const timer = setInterval(function () {
+      current += isDecimal ? 0.01 : 1;
+      counter.textContent = isDecimal
+        ? current.toFixed(2)
+        : current;
+      if (current >= target) {
+        counter.textContent = isDecimal
+          ? target.toFixed(2)
+          : target;
+        clearInterval(timer);
+      }
+    }, stepTime);
+  }
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.6 });
+
+    counters.forEach(function (counter) {
+      observer.observe(counter);
+    });
+  } else {
+    counters.forEach(function (counter) {
+      animateCounter(counter);
+    });
+  }
+});
+</script>
+
+
+    <!-- Slider Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const slider = document.getElementById('exp-slider');
+        let index = 0;
+        const slides = slider?.children;
+        const total = slides?.length || 0;
+
+        setInterval(() => {
+          if (!slider || total === 0) return;
+          index = (index + 1) % total;
+          slider.style.transform = `translateX(-${index * 100}%)`;
+        }, 4000);
+      });
+    </script>
 </body>
 </html>
