@@ -122,9 +122,15 @@
         .counter {
             font-size: 2rem;
             font-weight: 700;
-            color: #a78bfa;
-            display: block;
-            margin-bottom: 0.5rem;
+            color: white; /* numbers in white */
+            display: inline-block;
+        }
+
+        /* White plus sign styling */
+        .plus-sign {
+            color: white;
+            font-weight: bold;
+            margin-left: 2px;
         }
 
         /* Responsive adjustments */
@@ -178,9 +184,12 @@
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 {% for category, message in messages %}
-                    <div class="glass rounded-lg px-4 py-2 shadow-lg w-full max-w-md text-center
+                    <div class="flash-msg glass rounded-lg px-4 py-2 shadow-lg w-full max-w-md flex justify-between items-center
                                 {% if category=='success' %} border-green-400 text-green-200 {% else %} border-red-400 text-red-200 {% endif %}">
-                        {{ message }}
+                        <span class="text-sm">{{ message }}</span>
+                        <button class="ml-3 text-gray-400 hover:text-white focus:outline-none dismiss-btn">
+                            <i class="fas fa-times"></i>
+                        </button>
                     </div>
                 {% endfor %}
             {% endif %}
@@ -211,118 +220,100 @@
       AOS.init({ duration: 800, once: true });
     </script>
 
-   <style>
-  /* Counter number styling */
-  .counter {
-    font-size: 2rem;
-    font-weight: 700;
-    color: white; /* number in white */
-    display: inline-block;
-  }
+    <!-- HOMEPAGE HIGHLIGHTS COUNTER -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const highlightsSection = document.querySelector('#cyber-highlights');
+      if (!highlightsSection) return; // Exit if not on homepage
 
-  /* White plus sign styling */
-  .plus-sign {
-    color: white;
-    font-weight: bold;
-    margin-left: 2px;
-  }
-</style>
+      const counters = highlightsSection.querySelectorAll('.counter');
 
-<!-- HOMEPAGE HIGHLIGHTS COUNTER -->
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const highlightsSection = document.querySelector('#cyber-highlights');
-  if (!highlightsSection) return; // Exit if not on homepage
+      function animateCounter(counter) {
+        const target = parseInt(counter.getAttribute('data-count'), 10);
+        const duration = 1500;
+        const stepTime = Math.max(Math.floor(duration / target), 1);
+        let current = 0;
 
-  const counters = highlightsSection.querySelectorAll('.counter');
-
-  function animateCounter(counter) {
-    const target = parseInt(counter.getAttribute('data-count'), 10);
-    const duration = 1500;
-    const stepTime = Math.max(Math.floor(duration / target), 1);
-    let current = 0;
-
-    const timer = setInterval(function () {
-      current += 1;
-      counter.textContent = current;
-      if (current >= target) {
-        clearInterval(timer);
+        const timer = setInterval(function () {
+          current += 1;
+          counter.textContent = current;
+          if (current >= target) {
+            clearInterval(timer);
+          }
+        }, stepTime);
       }
-    }, stepTime);
-  }
 
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.6 });
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              animateCounter(entry.target);
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.6 });
 
-    counters.forEach(function (counter) {
-      observer.observe(counter);
-    });
-  } else {
-    counters.forEach(function (counter) {
-      animateCounter(counter);
-    });
-  }
-});
-</script>
-
-<!-- EDUCATION COUNTERS -->
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const eduSection = document.querySelector('#edu-counters');
-  if (!eduSection) return; // Exit if not on Education page
-
-  const counters = eduSection.querySelectorAll('.counter');
-
-  function animateCounter(counter) {
-    const target = parseFloat(counter.getAttribute('data-count'));
-    const isDecimal = target % 1 !== 0;
-    const duration = 1500;
-    const steps = isDecimal ? Math.ceil(target * 100) : target;
-    const stepTime = Math.max(Math.floor(duration / steps), 1);
-    let current = 0;
-
-    const timer = setInterval(function () {
-      current += isDecimal ? 0.01 : 1;
-      counter.textContent = isDecimal
-        ? current.toFixed(2)
-        : current;
-      if (current >= target) {
-        counter.textContent = isDecimal
-          ? target.toFixed(2)
-          : target;
-        clearInterval(timer);
+        counters.forEach(function (counter) {
+          observer.observe(counter);
+        });
+      } else {
+        counters.forEach(function (counter) {
+          animateCounter(counter);
+        });
       }
-    }, stepTime);
-  }
-
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.6 });
-
-    counters.forEach(function (counter) {
-      observer.observe(counter);
     });
-  } else {
-    counters.forEach(function (counter) {
-      animateCounter(counter);
-    });
-  }
-});
-</script>
+    </script>
 
+    <!-- EDUCATION COUNTERS -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const eduSection = document.querySelector('#edu-counters');
+      if (!eduSection) return; // Exit if not on Education page
+
+      const counters = eduSection.querySelectorAll('.counter');
+
+      function animateCounter(counter) {
+        const target = parseFloat(counter.getAttribute('data-count'));
+        const isDecimal = target % 1 !== 0;
+        const duration = 1500;
+        const steps = isDecimal ? Math.ceil(target * 100) : target;
+        const stepTime = Math.max(Math.floor(duration / steps), 1);
+        let current = 0;
+
+        const timer = setInterval(function () {
+          current += isDecimal ? 0.01 : 1;
+          counter.textContent = isDecimal
+            ? current.toFixed(2)
+            : current;
+          if (current >= target) {
+            counter.textContent = isDecimal
+              ? target.toFixed(2)
+              : target;
+            clearInterval(timer);
+          }
+        }, stepTime);
+      }
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              animateCounter(entry.target);
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.6 });
+
+        counters.forEach(function (counter) {
+          observer.observe(counter);
+        });
+      } else {
+        counters.forEach(function (counter) {
+          animateCounter(counter);
+        });
+      }
+    });
+    </script>
 
     <!-- Slider Script -->
     <script>
@@ -337,6 +328,33 @@ document.addEventListener('DOMContentLoaded', function () {
           index = (index + 1) % total;
           slider.style.transform = `translateX(-${index * 100}%)`;
         }, 4000);
+      });
+    </script>
+
+    <!-- Flash Message Auto + Manual Dismiss -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const flashMessages = document.querySelectorAll('.flash-msg');
+
+        flashMessages.forEach(msg => {
+          // Auto dismiss after 4s
+          const timer = setTimeout(() => dismiss(msg), 4000);
+
+          // Manual dismiss button
+          const btn = msg.querySelector('.dismiss-btn');
+          if (btn) {
+            btn.addEventListener('click', () => {
+              clearTimeout(timer);
+              dismiss(msg);
+            });
+          }
+        });
+
+        function dismiss(msg) {
+          msg.style.transition = "opacity 0.5s ease";
+          msg.style.opacity = "0";
+          setTimeout(() => msg.remove(), 500);
+        }
       });
     </script>
 </body>
