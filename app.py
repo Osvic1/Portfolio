@@ -185,27 +185,29 @@ def projects():
             "link": "https://github.com/Osvic1/website-monitoring-dashboard"
         },
         {
-            "title": "🔍 Digital Forensics Investigation",
-            "description": "Conducted forensic analysis of compromised systems, identifying malware indicators and securing digital evidence.",
+            "title": "🧱 Host-Based Firewall Configuration (Windows)",
+            "description": "Configured Windows Defender Firewall to block unauthorized access, allow trusted applications, and monitor activity. Rules were created for inbound/outbound traffic, and logs were analyzed to confirm enforcement.",
             "images": [
-                url_for('static', filename='images/digital_forensics_1.png'),
-                url_for('static', filename='images/digital_forensics_2.png'),
-                url_for('static', filename='images/digital_forensics_3.png'),
+                url_for('static', filename='images/fw1.png'),
+                url_for('static', filename='images/fw2.png'),
+                url_for('static', filename='images/fw3.png'),
             ],
-            "tags": ["Digital Forensics", "Incident Response"],
-            "link": "https://github.com/Osvic1/digital-forensics"
+            "tags": ["Firewall", "Windows Security", "Access Control"],
+            "link": "https://docs.google.com/document/d/1RqVK-ABCZ5TeWHGBxxU9JNE21n0S9w3w3ou5B3cgWss/edit?usp=sharing"
         },
+
         {
-            "title": "📊 Cybersecurity Data Visualization",
-            "description": "Built interactive dashboards in Python (Matplotlib & Plotly) to visualize threat intelligence data and vulnerability reports.",
+            "title": "🧪 Vulnerability Scan Using OpenVAS",
+            "description": "Performed a full vulnerability assessment on ShieldGuard Inc.'s LAN using OpenVAS. Detected critical issues including unpatched software, weak SSH passwords, and exposed SMB services. Provided remediation steps and long-term security recommendations.",
             "images": [
-                url_for('static', filename='images/dataviz_1.jpg'),
-                url_for('static', filename='images/dataviz_2.jpg'),
-                url_for('static', filename='images/dataviz_3.jpg'),
+                url_for('static', filename='images/opv1.png'),
+                url_for('static', filename='images/opv2.png'),
+                url_for('static', filename='images/opv3.png'),
             ],
-            "tags": ["Data Visualization", "Python", "Dashboards"],
-            "link": "https://github.com/Osvic1/cybersecurity-dataviz"
-        }
+            "tags": ["Vulnerability Assessment", "OpenVAS", "Network Security"],
+            "link": "https://docs.google.com/document/d/1BTIynjtbc4gbitqLxSkFuyzXv82Q8dSxV537i3mCFbM/edit?usp=sharing"
+        },
+
     ]
     return render_template("projects.html", title="Projects", projects=PROJECTS, socials=SOCIALS), 200, {'Content-Type': 'text/html; charset=utf-8'}
 
