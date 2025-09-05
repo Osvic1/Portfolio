@@ -62,9 +62,10 @@
 
       <!-- Quick Access Buttons -->
       <div class="mt-6 flex gap-4">
-        <a href="{{ socials.resume }}" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-sm text-white transition">
-          <i class="fas fa-file-alt mr-2"></i> Download Resume
+        <a href="{{ socials.resume }}" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-lg border border-gray-500 hover:bg-gray-800 transition">
+          View CV
         </a>
+
         <a href="{{ url_for('projects') }}" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg text-sm text-white transition">
           <i class="fas fa-code mr-2"></i> View Projects
         </a>
